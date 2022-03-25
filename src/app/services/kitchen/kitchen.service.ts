@@ -7,14 +7,14 @@ import { Injectable } from '@angular/core';
 export class KitchenService {
   constructor(private _http: HttpClient) {}
   save(data: any) {
-    return this._http.post('http://localhost:8080/revelation', data);
+    return this._http.post('https://kitchen-tea-api.herokuapp.com/revelation', data);
   }
 
   findAll() {
-    return this._http.get('http://localhost:8080/revelation');
+    return this._http.get('https://kitchen-tea-api.herokuapp.com/revelation');
   }
 
   findByKey(key: string) {
-    return this._http.get(`http://localhost:8080/revelation/key?key=${key}`);
+    return this._http.get(`https://kitchen-tea-api.herokuapp.com/revelation/key?key=${key}`);
   }
 }
