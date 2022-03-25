@@ -1,0 +1,27 @@
+mat-card {
+  height: 14rem;
+  width: 14rem;
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    height: 7rem;
+    width: 8rem;
+  }
+}
+
+.link-dark {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.disabled {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.mr-4 {
+  margin-right: 4rem;
+}

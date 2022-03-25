@@ -1,0 +1,33 @@
+<div class="container top-2">
+    <mat-card id="login--container" class="p-4">
+        <div class="text-center">
+            <h1>Cadastro</h1>
+            <h3>Preencha os dados para se cadastrar</h3>
+        </div>
+
+        <form [formGroup]="formSignUp" (ngSubmit)="signUp()">
+            <div class="w-100 mb-3">
+                <label for="exampleInputName" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
+                    formControlName="name">
+            </div>
+            <div class="w-100 mb-3">
+                <label for="exampleInputLogin" class="form-label">Login</label>
+                <input type="text" class="form-control" id="exampleInputLogin" formControlName="login">
+            </div>
+            <div class="w-100 mb-3">
+                <label for="exampleInputPassword" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="exampleInputPassword" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary w-100" [disabled]="!formSignUp.valid">Cadastrar</button>
+            </div>
+        </form>
+    </mat-card>
+    <div class="mt-1">
+        <button type="button" class="btn" (click)="goBack()">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+    </div>
+
+</div>

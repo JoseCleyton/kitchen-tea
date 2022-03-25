@@ -1,0 +1,143 @@
+<div class="container pt-5">
+    <mat-card id="toolbar--container" class="p-4">
+        <div class="row">
+            <div class="col d-flex justify-content-start">
+                <h2>Eventos Cadastrados</h2>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <button class="btn btn-primary btn--height--custom" (click)="openDialogNewEvent()">Novo</button>
+            </div>
+        </div>
+    </mat-card>
+
+    <mat-card id="table--container" class="p-4 mt-3">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Chave</td>
+                    <td>Participantes</td>
+                    <td>Total de Presentes</td>
+                    <td>Expira em</td>
+                    <td>Ação</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of dataSource" (click)="goToRevelation(data.key)">
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="mr-1">
+                                {{ data.name }}
+                            </span>
+                            <span>
+                                <mat-icon>countertops</mat-icon>
+                            </span>
+                        </div>
+                    </td>
+
+                    <td (click)="preventDefault($event)">
+                        <div class="d-flex align-items-center">
+                            <span class="mr-1">
+                                {{ data.key }}
+                            </span>
+                            <span id="key" (click)="copyClipBoardToastr()">
+                                <mat-icon [cdkCopyToClipboard]="copyToClipBoard(data.key)">key</mat-icon>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="mr-1">
+                                {{ data.quantityGuest }}
+                            </span>
+                            <span>
+                                <mat-icon>person</mat-icon>
+                            </span>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="mr-1">
+                                {{ data.quantityGifts }}
+                            </span>
+                            <span>
+                                <mat-icon>card_giftcard</mat-icon>
+                            </span>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="mr-1">
+                                {{ data.expiredIn | date}}
+                            </span>
+                            <span>
+                                <mat-icon>today</mat-icon>
+                            </span>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+
+</div>
+
+
+<!-- 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Novo Evento</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formNewEvent" (ngSubmit)="newEvent()">
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="name" class="form-label">Nome do Evento</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
+                                formControlName="name">
+                        </div>
+                        <div class="col mb-3">
+                            <div class="col mb-3">
+                                <label for="expiredIn" class="form-label">Expira em:</label>
+                                <input type="text" class="form-control" id="expiredIn" placeholder="01/01/2022"
+                                    aria-describedby="expiredInHelp" formControlName="expiredIn" mask="00/00/0000">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="key" class="form-label">Chave do Evento</label>
+                            <input type="text" class="form-control" id="key" aria-describedby="keyHelp"
+                                formControlName="key">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row p-2">
+                <div class="col d-flex justify-content-start">
+                    <button mat-raised-button data-bs-dismiss="modal">Fechar</button>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary" [disabled]="!formNewEvent.valid" (click)="newEvent()"
+                        data-bs-dismiss="modal">Salvar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> -->

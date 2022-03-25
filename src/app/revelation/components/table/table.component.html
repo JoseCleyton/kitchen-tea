@@ -1,0 +1,22 @@
+<div class="row mt-5">
+    <div class="col-2 mr-4" *ngFor="let giftSuggestion of data">
+        <mat-card (click)="selectGiftSuggestion(giftSuggestion.id)" [ngClass]="
+        {'disabled': disabled }">
+            <div class="row">
+                <div class="col d-flex justify-content-start">
+                    <h3 class="link-dark" (click)="clickLink(giftSuggestion.url)">
+                        {{ giftSuggestion.name }}
+                    </h3>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <mat-radio-button
+                        [checked]="selectedGiftSugestion === giftSuggestion.id || selected === giftSuggestion.id"
+                        [value]="giftSuggestion.id" color="warn"></mat-radio-button>
+                </div>
+            </div>
+            <div class="row">
+                <img [src]="giftSuggestion.picture">
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Olá, seja bem vindo ao nosso chá de cozinha.</h1>
+<div mat-dialog-content>
+    <p>Qual é o seu nome?</p>
+    <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome completo</mat-label>
+            <input matInput formControlName="completeName">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button [disabled]="!form.valid" mat-raised-button [mat-dialog-close]="form.get('completeName').value"
+        cdkFocusInitial>Ok</button>
+</div>

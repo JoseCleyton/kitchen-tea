@@ -1,0 +1,28 @@
+<div class="container top-2">
+
+    <mat-card id="login--container" class="p-4">
+        <div class="text-center">
+            <h1>Bem vindo de volta</h1>
+            <h3>Preencha os dados para entrar</h3>
+        </div>
+
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
+            <div class="mb-3">
+                <label for="exampleInputLogin" class="form-label">Login</label>
+                <input type="text" class="form-control" id="exampleInputLogin" aria-describedby="emailHelp"
+                    formControlName="login">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="exampleInputPassword" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary  w-100" [disabled]="!formLogin.valid">Entrar</button>
+            </div>
+            <div>
+                <h4>Não tem conta? <a routerLink="/sign-up" class="link-primary">Crie uma... </a></h4>
+            </div>
+        </form>
+    </mat-card>
+
+</div>

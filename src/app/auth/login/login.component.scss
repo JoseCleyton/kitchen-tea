@@ -1,0 +1,41 @@
+.top-2 {
+  margin-top: 18%;
+}
+
+h1 {
+  margin: 0;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.link-primary {
+  color: #3f51b5;
+  text-decoration: none;
+}
+// background-color: #2f54e9;
+
+#login--container {
+  width: 22rem;
+  border-radius: 20px;
+  background-color: white;
+  color: #3f51b5 !important;
+}
+
+a {
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
+  }
+}

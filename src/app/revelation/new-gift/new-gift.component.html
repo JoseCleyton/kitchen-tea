@@ -1,0 +1,13 @@
+<div class="container">
+    Deseja selecionar esse presente?
+
+    <div class="row p-2 mt-1">
+        <div class="col d-flex justify-content-start">
+            <button mat-raised-button (click)="onNoClick()">Fechar</button>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" [mat-dialog-close]="true">Ok</button>
+        </div>
+    </div>
+
+</div>

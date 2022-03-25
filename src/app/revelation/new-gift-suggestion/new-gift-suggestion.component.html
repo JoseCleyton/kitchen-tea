@@ -1,0 +1,33 @@
+<div class="container">
+    <form [formGroup]="formNewGiftSuggestion">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" formControlName="name">
+            </div>
+            <div class="col mb-3">
+                <div class="col mb-3">
+                    <label for="url" class="form-label">URL Loja</label>
+                    <input type="text" class="form-control" id="url" placeholder="www.google.com.br"
+                        aria-describedby="urlHelp" formControlName="url">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="picture" class="form-label">Link da Imagem</label>
+                <input type="text" class="form-control" id="picture" aria-describedby="pictureHelp"
+                    formControlName="picture">
+            </div>
+        </div>
+    </form>
+
+    <div class="row p-2 mt-1">
+        <div class="col d-flex justify-content-start">
+            <button mat-raised-button (click)="onNoClick()">Fechar</button>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!formNewGiftSuggestion.valid"
+                [mat-dialog-close]="formNewGiftSuggestion">Salvar</button>
+        </div>
+    </div>
+
+</div>
