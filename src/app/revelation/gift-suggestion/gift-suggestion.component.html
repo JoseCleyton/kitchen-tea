@@ -1,8 +1,11 @@
 <div class="container pt-5">
-    <app-toolbar (newGiftEvent)="newGiftSuggestion($event)"></app-toolbar>
-
-    <app-table [data]="giftSuggestions" (selectGiftSuggestionEvent)="selectGiftSuggestion($event)"
-        (clickLinkEvent)="clickLink($event)"></app-table>
+    <mat-card class="mb-3">
+        <app-toolbar (newGiftEvent)="newGiftSuggestion($event)"></app-toolbar>
+    </mat-card>
+    <mat-card>
+        <app-table [data]="giftSuggestions" (selectGiftSuggestionEvent)="selectGiftSuggestion($event)"
+            (clickLinkEvent)="clickLink($event)"></app-table>
+    </mat-card>
 
     <!-- <div class="row mt-5">
         <div class="col-2" *ngFor="let giftSuggestion of giftSuggestions">

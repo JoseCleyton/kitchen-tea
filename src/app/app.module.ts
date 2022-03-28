@@ -1,3 +1,5 @@
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,9 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { Interceptor } from './core/interceptor.module';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ConfirmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,6 +21,9 @@ import { Interceptor } from './core/interceptor.module';
     HttpClientModule,
     ToastrModule.forRoot(),
     Interceptor,
+    NgxUiLoaderModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

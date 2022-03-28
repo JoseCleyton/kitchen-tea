@@ -80,11 +80,11 @@
                         </div>
                     </td>
 
-                    <td>
-                        <button mat-icon-button>
+                    <td (click)="preventDefault($event)">
+                        <button mat-icon-button (click)="openDialogEditEvent(data)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button mat-icon-button color="warn">
+                        <button mat-icon-button color="warn" (click)="delete(data.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

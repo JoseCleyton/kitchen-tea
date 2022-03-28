@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
@@ -15,7 +16,7 @@ import { catchError, finalize } from 'rxjs/operators';
 @Injectable()
 export class HttpsRequestInterceptor implements HttpInterceptor {
   constructor(
-    // private loadingService: LoadingService,
+    private _ngxService: NgxUiLoaderService,
     // private store$: Store<AppState>,
     private router: Router
   ) {}
@@ -24,11 +25,11 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // this.loadingService.requestStarted();
+    this._ngxService.start();
     if (localStorage.getItem('token') === null) {
       return next.handle(req).pipe(
         catchError((err: HttpErrorResponse) => {
-          //   this.loadingService.requestEnded();
+          this._ngxService.stop();
           if (err.status.toString().includes('4')) {
             // this.store$.dispatch(
             //   new fromAlert.actions.AddAlert({
@@ -48,7 +49,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
           return throwError(err);
         }),
         finalize(() => {
-          //   this.loadingService.requestEnded();
+          this._ngxService.stop();
         })
       );
     } else {
@@ -60,7 +61,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
 
       return next.handle(dupReq).pipe(
         catchError((err: HttpErrorResponse) => {
-          //   this.loadingService.requestEnded();
+          this._ngxService.stop();
           if (err.status === 403) {
             // this.store$.dispatch(
             //   new fromAlert.actions.AddAlert({
@@ -85,7 +86,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
           return throwError(err);
         }),
         finalize(() => {
-          //   this.loadingService.requestEnded();
+          this._ngxService.stop();
         })
       );
     }
